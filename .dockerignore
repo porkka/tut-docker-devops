@@ -5,3 +5,4 @@ Dockerfile
 .gitignore
 .ignore
 README.md
+docker-compose*
