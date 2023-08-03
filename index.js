@@ -9,11 +9,10 @@ const {
 
 const app = express();
 const port = process.env.PORT || 3000;
+const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
 
 mongoose
-  .connect(
-    `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`
-  )
+  .connect(mongoURL)
   .then(() => console.log(">> Database connected"))
   .catch((e) => console.log(e));
 
