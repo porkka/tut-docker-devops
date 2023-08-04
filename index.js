@@ -7,6 +7,8 @@ const {
   MONGO_PASSWORD,
 } = require("./config/config");
 
+const postRouter = require("./routes/postRoutes");
+
 const app = express();
 const port = process.env.PORT || 3000;
 const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
@@ -26,5 +28,8 @@ connectWithRetry();
 app.get("/", (req, res) => {
   res.send("<h2>Hello world</h2>");
 });
+
+app.use(express.json());
+app.use("/api/v1/posts", postRouter);
 
 app.listen(port, () => console.log(`>> Listening on port ${port}`));
