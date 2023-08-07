@@ -40,8 +40,7 @@ const connectWithRetry = () => {
 connectWithRetry();
 
 app.get("/api/v1", (req, res) => {
-  res.send("<h2>Hello world</h2>");
-  console.log(">> I got hit!");
+  res.send("<h2>Hello world!</h2>");
 });
 
 app.enable("trust proxy");
