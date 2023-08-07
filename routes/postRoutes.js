@@ -6,12 +6,12 @@ const router = express.Router();
 
 router
   .route("/")
-  .get(protect, postController.getAllPosts)
+  .get(postController.getAllPosts)
   .post(protect, postController.createPost);
 
 router
   .route("/:id")
-  .get(protect, postController.getOnePost)
+  .get(postController.getOnePost)
   .patch(protect, postController.updatePost)
   .delete(protect, postController.deletePost);
 
