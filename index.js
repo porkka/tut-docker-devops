@@ -5,6 +5,7 @@ const userRouter = require("./routes/userRoutes");
 const session = require("express-session");
 const redis = require("redis");
 const RedisStore = require("connect-redis").default;
+const cors = require("cors");
 
 const {
   MONGO_IP,
@@ -44,6 +45,7 @@ app.get("/api/v1", (req, res) => {
 });
 
 app.enable("trust proxy");
+app.use(cors({}));
 app.use(
   session({
     proxy: true,
